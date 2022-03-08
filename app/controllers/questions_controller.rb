@@ -1,9 +1,9 @@
 class QuestionsController < ApplicationController
-  before_action :set_question!, only: %i[show destroy edit update]
+  before_action :set_question!
 
   def show
     @answer = @question.answers.build
-    @answers =  Answer.order created_at: :desc
+    @answers = @question.answers.order created_at: :desc
   end
 
   def destroy
@@ -51,4 +51,5 @@ class QuestionsController < ApplicationController
   def set_question!
     @question = Question.find_by id: params[:id]
   end
+
 end

@@ -1,3 +1,6 @@
+<% provide :page_title, @question.title %>
+<% currently_at 'Questions' %>
+
 <h1 class="mb-4"><%= @question.title %></h1>
 
 <time datetime="<%= @question.formatted_created_at %>">
@@ -47,5 +50,7 @@
 
     <%= link_to 'Delete', question_answer_path(@question, answer), class: 'btn btn-danger btn-sm',
         data: {method: :delete, confirm: "Are you sure?"} %>
+
+    <%= link_to 'Edit', edit_question_answer_path(@question, answer), class: 'btn btn-info btn-sm' %>
   </article>
 <% end %>

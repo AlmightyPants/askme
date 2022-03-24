@@ -10,7 +10,9 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true, 'valid_email_2/email': true
   validates :name, presence: true
 
-
+  def remember_me
+    token = SecureRandom.urlsafe_base64
+  end
   private
 
   def correct_old_password
